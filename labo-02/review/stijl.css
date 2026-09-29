@@ -1,0 +1,232 @@
+/* ==========================================================
+   stijl.css  -  "Papier & inkt"
+   Een pagina die aanvoelt als een notitieboekje: warm papier,
+   donkere inkt, één rode stempel onderaan.
+   ========================================================== */
+
+:root {
+    --color-papier: #fbf7f0;
+    --color-inkt: #2b2b2b;
+    --color-gedempt: #6b6b6b;
+    --color-accent: #b5451b;
+    --color-zebra: #f1e9dc;
+
+    --font-tekst: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --font-kop: "Baskerville", "Palatino Linotype", Georgia, serif;
+}
+
+/* ---------- Basis ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--color-zebra);
+    scroll-behavior: smooth;
+}
+
+body {
+    max-width: 44rem;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 3rem) 4rem;
+    background: var(--color-papier);
+    color: var(--color-inkt);
+    font-family: var(--font-tekst);
+    font-size: 1.125rem;
+    line-height: 1.75;
+    /* een paar dunne "schrijflijnen" alsof het notitiepapier is */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent calc(1.97rem - 1px),
+        rgba(181, 69, 27, 0.07) calc(1.97rem - 1px),
+        rgba(181, 69, 27, 0.07) 1.97rem
+    );
+    box-shadow: 0 0 0 1px rgba(43, 43, 43, 0.06), 0 1.5rem 4rem rgba(43, 43, 43, 0.12);
+}
+
+::selection {
+    background: var(--color-accent);
+    color: var(--color-papier);
+}
+
+/* ---------- Header & navigatie ---------- */
+
+header {
+    padding: 3.5rem 0 1.25rem;
+    margin-bottom: 2.5rem;
+    background: var(--color-papier);
+    border-bottom: 4px double var(--color-accent);
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-kop);
+    font-size: clamp(2.6rem, 9vw, 4.75rem);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.25rem 0;
+    color: var(--color-inkt);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    /* onderstreping die groeit bij hover */
+    background: linear-gradient(var(--color-accent), var(--color-accent)) left bottom / 0 3px no-repeat;
+    transition: background-size 0.25s ease, color 0.25s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--color-accent);
+    background-size: 100% 3px;
+}
+
+nav a[aria-current="page"] {
+    color: var(--color-accent);
+    background-size: 100% 3px;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* ---------- Koppen & tekst ---------- */
+
+h2 {
+    margin: 2.75rem 0 0.5rem;
+    padding-left: 1rem;
+    border-left: 6px solid var(--color-accent);
+    font-family: var(--font-kop);
+    font-size: clamp(1.5rem, 4.5vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+p {
+    margin: 0 0 1.25rem;
+    overflow-wrap: anywhere; /* lange woorden of zinnen breken netjes af */
+}
+
+/* eerste alinea onder een kop krijgt een mooie beginletter */
+h2 + p::first-letter {
+    color: var(--color-accent);
+    font-family: var(--font-kop);
+    font-size: 1.35em;
+    font-weight: 700;
+}
+
+a {
+    color: var(--color-accent);
+    text-underline-offset: 0.2em;
+}
+
+/* ---------- Lijst (hobby's) als zebra-boekhouding ---------- */
+
+body > ul {
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid var(--color-inkt);
+    border-bottom: 2px solid var(--color-inkt);
+}
+
+body > ul li {
+    position: relative;
+    padding: 0.6rem 1rem 0.6rem 2.75rem;
+    transition: padding-left 0.2s ease, color 0.2s ease;
+}
+
+body > ul li:nth-child(even) {
+    background: var(--color-zebra);
+}
+
+body > ul li::before {
+    content: "\2736"; /* zespuntige ster */
+    position: absolute;
+    left: 1rem;
+    color: var(--color-accent);
+}
+
+body > ul li:hover {
+    padding-left: 3.25rem;
+    color: var(--color-accent);
+}
+
+/* ---------- Footer: de stempel ---------- */
+
+footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-gedempt);
+    text-align: center;
+    color: var(--color-gedempt);
+}
+
+footer p {
+    display: inline-block;
+    margin: 0;
+    padding: 0.4rem 1.5rem;
+    border: 3px double var(--color-accent);
+    border-radius: 0.25rem;
+    color: var(--color-accent);
+    font-family: var(--font-kop);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transform: rotate(-2.5deg);
+    opacity: 0.9;
+}
+
+/* ---------- Kleine schermen & voorkeuren ---------- */
+
+@media (max-width: 30rem) {
+    body {
+        font-size: 1.05rem;
+    }
+
+    header {
+        padding-top: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+@media print {
+    html,
+    body {
+        background: #fff;
+        box-shadow: none;
+    }
+}
