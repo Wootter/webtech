@@ -1,0 +1,93 @@
+:root {
+    --color-papier: #fbf7f0;
+    --color-inkt: #2b2b2b;
+    --color-gedempt: #6b6b6b;
+    --color-accent: #b5451b;
+    --color-zebra: #f1e9dc;
+
+    --font-kop: Georgia;
+    --font-text: Verdana;
+}
+
+body {
+    background-color: var(--color-papier);
+    color: var(--color-inkt);
+    font-family: var(--font-text);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Global structuring headings and paragraphs*/
+h1, h2, h3 {
+    font-weight: lighter;
+    font-family: var(--font-kop);
+}
+
+p, #bonen ~ ol li {
+    font-size: 0.75rem;
+    font-weight: 500;
+
+    > strong {
+        color: var(--color-accent);
+    }
+}
+
+h1{
+    color: var(--color-accent);
+}
+
+h3, .prijs {
+    color: var(--color-gedempt);
+}
+
+main a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+main a:hover,
+main a:focus {
+    background-color: var(--color-accent);
+    color: var(--color-papier);
+}
+
+.slogan {
+    font-size: 0.75rem;
+    color: var(--color-gedempt)
+}
+
+header nav ul li a {
+    color: var(--color-accent);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+        color: var(--color-inkt);
+    }
+}
+
+.intro {
+    font-size: 1rem;
+}
+
+.kaart li:nth-child(odd) {
+    background-color: var(--color-zebra);
+}
+
+.prijs {
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    color: var(--color-gedempt);
+}
+
+footer a {
+    color: var(--color-gedempt);
+
+    &:hover, &:focus {
+        color: var(--color-accent);
+    }
+}
