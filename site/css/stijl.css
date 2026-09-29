@@ -1,0 +1,72 @@
+
+/* Standardization from colors */
+:root {
+    --color-body: #f8f7f5;
+    --color-tekst: #3c4044;
+    --color-fore-hover: #5e5653;
+    --color-back-hover: #e2e8d8;
+    --color-gedempt: #9e9e9e;
+    --color-lightGreen: #8B9A6E;
+    --color-darkGreen: #404e3b;
+
+    --font-head: Georgia, 'Times New Roman', Times, serif;
+    --font-body: Verdana, Geneva, Tahoma, sans-serif; 
+
+    --size-tekst: 16px;
+    --size-nav: 1.25rem;
+    --size-small-print: 0.5rem;
+
+    --font-bold: bold;
+    --font-light: 150; 
+}
+
+/* Initialize standard measurements */
+body {
+    font-size: var(--size-tekst);
+    font-weight: var(--font-light);
+    font-family: var(--font-body);
+    color: var(--color-tekst);
+    background-color: var(--color-body);
+}
+
+main a {
+    color: var(--color-lightGreen);
+    text-decoration: none;
+    font-weight: var(--font-bold);
+    &:hover, &:focus {
+        text-decoration: underline;
+        color: var(--color-fore-hover);
+    }
+}
+
+h1 {
+    color: var(--color-tekst)
+}
+
+
+/* Navigation formatting - The beginning*/
+header nav ul li {
+    a {
+        color: var(--color-darkGreen);
+        text-decoration: none;
+        font-weight: var(--font-light);
+        &:hover, &:focus {
+            background-color: var(--color-back-hover);
+        }
+    }
+}
+
+
+/* Footer formatting - The end*/
+footer {
+    text-align: center;
+
+    p {
+        color: var(--color-gedempt)
+    }
+    a {
+        &:hover, &:focus {
+            background-color: var(--color-back-hover);
+        }
+    }
+}
