@@ -53,7 +53,14 @@ Bij vraag 8 was ik fout, ik heb de style attribute in de span niet gezien door h
 ## 6. Je site
 
 - Welke drie waarden staan in je tokenblok, en waarom die?
+    De kleuren: Heb ik gekozen voor een lichte kleurpallet zodat het zacht op de ogen land.
+    De lettergrootte: Niet te grootte standaard grootte maar groot genoeg om te lezen terwijl klein genoeg te zijn om so veel mogelijk plek te hebbenn om mee te spelen.
+    De lettertype: Een duidelijk universeel overzichtelijk lettertype om alles vlot en duidlijk te tonen.
+
+    Alles wordt gecentraliseerd om later een kleur genakkelijk te wijzigen. Dezelfde kleur gebruik je soms meer dan 10 keer en is het gemakkelijk om het in één keer aan te passen ipv 10 aparte keren en zoeken waar het zit.
+
 - Wat verandert er in je site als je één token wijzigt?
+    De aanpassing dat die token toebracht tot de website, kleur, grootte, lettertype, etc.
 
 ## Thuis: R2.3 (met AI)
 
