@@ -39,6 +39,7 @@ h1 {
     width: var(--size-width-tabblad);
     padding: var(--size-padding-tabblad);
     border-bottom: 0;
+    box-sizing: border-box;
     font-weight: normal;
     font-size: var(--size-h1);
     background-color: var(--color-tabblad);
@@ -49,6 +50,7 @@ h2 {
     width: var(--size-width-card);
     padding: var(--size-padding-card);
     font-size: var(--size-h2);
+    box-sizing: border-box;
     margin-top: var(--size-negative-shadow);
     background-color: var(--color-space);
     box-shadow: var(--size-shadow) var(--size-shadow) var(--color-shadow),
