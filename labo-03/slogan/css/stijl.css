@@ -17,15 +17,13 @@
 
 html {
     font-family: var(--font-text);
-    margin-inline: auto;
 }
 
 body {
     margin: 12rem;
     width: min(40rem, calc(100% - 2rem));
-    margin-inline: auto;
-    color: var(--color-text);
     text-align: center;
+    color: var(--color-text);
     font-size: var(--size-text);
 }
 
