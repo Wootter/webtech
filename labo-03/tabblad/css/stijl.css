@@ -2,7 +2,52 @@
 
 /* === tokens === */
 :root {
+    --color-background: #FF816F;
+    --color-tabblad: #FFD500;
+    --color-space: white;
+    --color-shadow: black;
 
+    --font-text: Arial;
+
+    --size-border: 15px;
+    --size-card: 35px;
+    --size-padding: 5rem;
+    --size-shadow: 0.25rem;
+    --size-negative-shadow: -0.25rem;
+    --size-h1: 16px;
+    --size-h2: 30px;
 }
 
 /* === your rules === */
+
+html {
+    background-color: var(--color-background);
+    font-family: var(--font-text);
+}
+
+body {
+    margin: var(--size-padding);
+}
+
+h1, h2 {
+    border: var(--size-shadow) solid var(--color-shadow);
+}
+
+h1 {
+    font-weight: normal;
+    padding: var(--size-border);
+    width: 35vh;
+    font-size: var(--size-h1);
+    background-color: var(--color-tabblad);
+    box-shadow: var(--size-negative-shadow) var(--size-shadow) var(--color-shadow);
+}
+
+h2 {
+    padding: var(--size-card);
+    width: 80vh;
+    font-size: var(--size-h2);
+    margin-top: var(--size-negative-shadow);
+    background-color: var(--color-space);
+    box-shadow: var(--size-negative-shadow) var(--size-shadow), 
+    var(--size-shadow) var(--size-shadow) var(--color-shadow);
+}
