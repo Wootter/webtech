@@ -12,23 +12,19 @@
     --size-width-tabblad: 15rem;
     --size-width-card: 35rem;
     --size-page-space: 5rem;
-    --size-padding-tabblad: 1.25rem;
+    --size-padding-tabblad: 1rem;
     --size-padding-card: 2rem;
     --size-shadow: 0.25rem;
     --size-negative-shadow: -0.25rem;
-    --size-h1: 16px;
+    --size-h1: 1rem;
     --size-h2: 3rem;
 }
 
 /* === your rules === */
-
-html {
+body {
+    padding: var(--size-page-space);
     background-color: var(--color-background);
     font-family: var(--font-text);
-}
-
-body {
-    margin: var(--size-page-space);
 }
 
 h1, h2 {
@@ -43,7 +39,7 @@ h1 {
     font-weight: normal;
     font-size: var(--size-h1);
     background-color: var(--color-tabblad);
-    box-shadow: var(--size-negative-shadow) var(--size-shadow) var(--color-shadow);
+    box-shadow: -5px 5px 0;
 }
 
 h2 {
@@ -51,8 +47,7 @@ h2 {
     padding: var(--size-padding-card);
     font-size: var(--size-h2);
     box-sizing: border-box;
-    margin-top: var(--size-negative-shadow);
     background-color: var(--color-space);
-    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-shadow),
-        var(--size-negative-shadow) var(--size-shadow) var(--color-shadow);
+    box-shadow: -5px 5px 0, 
+    5px 5px 0;
 }

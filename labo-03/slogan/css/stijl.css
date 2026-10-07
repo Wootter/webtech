@@ -21,10 +21,13 @@ html {
 
 body {
     margin: 12rem;
-    width: min(40rem, calc(100% - 2rem));
     text-align: center;
     color: var(--color-text);
     font-size: var(--size-text);
+}
+
+h2, p {
+    max-width: 40rem;
 }
 
 h2 {
