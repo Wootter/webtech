@@ -1,0 +1,126 @@
+/* stijl.css - labo 4, dierenasiel (reset.css is linked before this file) */
+
+/* === tokens === */
+:root {
+    --color-papier: #f7f4ec;
+    --color-inkt: #2b2b2b;
+    --color-gedempt: #6b6b6b;
+    --color-balk: #1f3a2a;
+    --color-accent: #e6b53c;
+    --color-text: #f7f4ec;
+}
+
+/* === your rules === */
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--color-papier);
+}
+
+a,
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+p {
+    color: var(--color-inkt);
+}
+
+h1,
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-balk);
+}
+
+header > a, a.actief {
+    color: var(--color-accent);
+}
+
+header > nav > ul > li > a:hover,
+header > nav > ul > li > a:focus {
+    color: var(--color-accent);
+}
+
+nav {
+    > ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+        gap: 1.5rem;
+    }
+
+    a{
+        color: var(--color-text);
+    }
+}
+
+main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.kaarten {
+    display: grid; /* BELANGRIJK */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.kaart {
+    align-items: flex-start;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.15rem 0.4rem grey;
+    background-color: white;
+}
+
+.kaart:nth-child(1){
+    grid-column: 1/3;
+}
+
+.kaart:nth-child(2){
+    grid-column: 3/4;
+}
+
+.beschrijving {
+    flex: 1;
+    margin: 1.5rem 0;
+}
+
+.soort {
+    color: var(--color-gedempt);
+    margin: 0.25rem 0;
+}
+
+.knop {
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-balk);
+}
+
+footer {
+    display: flex;
+    background-color: var(--color-balk);
+    padding: 1.5rem;
+    justify-content: center;
+    p {
+        color: var(--color-text);
+    }
+}
