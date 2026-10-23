@@ -2,7 +2,96 @@
 
 /* === tokens === */
 :root {
-
+    --papier: #f8f7f5;
+    --inkt: #1a1a1a;
+    --gedempt: #6b6b6b;
+    --balk: #000000;
+    --link: #9a9a9a;
+    --a-link: #ffffff;
 }
 
 /* === your rules === */
+body {
+    display: grid;
+    background-color: var(--papier);
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "header header header header"
+    ".      main   main   .     "
+    "footer footer footer footer";
+}
+
+header {
+    position: sticky;
+    top: 0;
+    grid-area: header;
+    background-color: var(--balk);
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+    height: 3.5rem;
+    padding: 0 2rem;
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--link);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        letter-spacing: 0.05rem;
+    }
+}
+
+header a:hover, header a:focus {
+    color: var(--a-link);
+}
+
+.logo {
+    font-size: 1.5rem;
+    text-transform: none;
+    color: var(--a-link);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    gap: 2rem;
+}
+
+
+h1, h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+main {
+    width: 44rem;
+    padding: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+    grid-area: main;
+}
+
+section {
+    margin-top: 3rem;
+}
+
+footer {
+    grid-area: footer;
+    color: var(--link);
+    font-size: 0.875;;
+    text-align: center;
+}

@@ -2,7 +2,158 @@
 
 /* === tokens === */
 :root {
-
+    --papier: #f4efe6;
+    --inkt: #2b2b2b; 
+    --gedempt: #6b6b6b;
+    --balk: #2f241d;
+    --tekst: #f4efe6;
+    --accent: #c8742e;
 }
 
 /* === your rules === */
+body {
+    background-color: var(--papier);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    grid-template-areas: 
+    "nav     nav"
+    "balk    main"
+    "footer  footer";
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+header {
+    background-color: green;
+    grid-area: nav;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+
+    background-color: var(--balk);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+.actief, .logo {
+    color: var(--accent);
+}
+
+.logo  {
+    font-size: 2rem;
+}
+
+aside {
+    padding: 2rem;
+    border-right: 0.1rem solid #ddd5c8;
+    grid-area: balk;
+
+    h2 {
+        margin-top: 1rem;
+    }
+}
+
+p {
+    columns: var(--gedempt);
+}
+
+main {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    padding: 2rem;
+    grid-area: main;
+}
+
+.kaarten {
+    list-style: none;
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.kaart {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px grey;
+
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.kaart:not(:has(img)) {
+    border-top: 1rem solid var(--accent);
+}
+
+.tekst {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+img {
+    background-color: aqua;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.prijs {
+    color: var(--accent);
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.badge  {
+    position: absolute;
+    background-color: var(--accent);
+    text-transform: uppercase;
+    color: var(--tekst);
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    right: 0;
+    z-index: 1;
+}
+
+footer {
+    background-color: var(--balk);
+    color: var(--tekst);
+    text-align: center;
+    padding: 1rem;
+    grid-area: footer;
+}

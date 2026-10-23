@@ -2,7 +2,77 @@
 
 /* === tokens === */
 :root {
-
+    --color-blauw: #1e5bd8;
+    --color-roze: #e88bb4;
+    --color-rood: #c51f2a;
+    --color-oranje: #d98c1a;
+    --color-groen: #3b7a2a; 
+    --color-salie: #8fb89a;
+    --color-paars: #7b4fa3;
+    --color-grijs: #6b6b6b;
 }
 
 /* === your rules === */
+
+.citaten {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 1.5rem;
+}
+
+.citaat {
+    flex-basis: 18rem;
+    flex-grow: 1;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+cite {
+    font-weight: 100;
+    font-size: 0.875rem;
+}
+
+.blauw {
+    color: var(--color-blauw);
+    border-left: 0.5rem solid currentColor;
+}
+
+.roze {
+    color: var(--color-roze);
+    border-left: 0.5rem solid currentColor;
+}
+
+.rood {
+    color: var(--color-rood);
+    border-left: 0.5rem solid currentColor;
+}
+
+.oranje {
+    color: var(--color-oranje);
+    border-left: 0.5rem solid currentColor;
+}
+
+.groen {
+    color: var(--color-groen);
+    border-left: 0.5rem solid currentColor;
+}
+
+.salie {
+    color: var(--color-salie);
+    border-left: 0.5rem solid currentColor;
+}
+
+.paars {
+    color: var(--color-paars);
+    border-left: 0.5rem solid currentColor;
+}
+
+.grijs {
+    color: var(--color-grijs);
+    border-left: 0.5rem solid currentColor;
+}

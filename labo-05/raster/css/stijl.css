@@ -2,7 +2,78 @@
 
 /* === tokens === */
 :root {
-
+    --color-a: #e9493f;
+    --color-b: #edd24a;
+    --color-c: #072f55;
+    --color-d: #52a51a;
+    --color-e: #efaad9;
+    --color-f: #a5f129;
+    --color-g: #ebc47a;
+    --color-h: #e8882c;
 }
 
 /* === your rules === */
+
+.raster {
+    display: grid;
+
+    height: 100vh;
+    padding: 1rem;
+    gap: 1rem;
+
+    grid-template-areas: 
+    "a . . b"
+    "c d e f"
+    "g . . h";
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.vlak {
+    padding-top: 0.5rem;
+    padding-right: 0.75rem;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vlak.a {
+    background-color: var(--color-a);
+    grid-area: a;
+}
+
+.vlak.b {
+    background-color: var(--color-b);
+    grid-area: b;
+}
+
+.vlak.c {
+    background-color: var(--color-c);
+    grid-area: c;
+}
+
+.vlak.d {
+    background-color: var(--color-d);
+    grid-area: d;
+}
+
+.vlak.e {
+    background-color: var(--color-e);
+    grid-area: e;
+}
+
+.vlak.f {
+    background-color: var(--color-f);
+    grid-area: f;
+}
+
+.vlak.g {
+    background-color: var(--color-g);
+    grid-area: g;
+}
+
+.vlak.h { 
+    background-color: var(--color-h);
+    grid-area: h;
+}
