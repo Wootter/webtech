@@ -2,9 +2,48 @@
 
 /* === tokens === */
 :root {
-
+    --red: #b90020;
+    --green: #349803;
+    --yellow: #ffcd00;
+    --blue: #006aff ;
 }
 
 /* === base: narrow screens first === */
 
 /* === media queries: below the base rules === */
+
+main{
+    display: grid;
+    min-height: 100svh;
+}
+
+.rood {
+    background-color: var(--red);
+}
+
+.groen {
+    background-color: var(--green);
+}
+
+.geel {
+    background-color: var(--yellow);
+}
+
+.blauw {
+    background-color: var(--blue);
+}
+
+@media (min-width: 37.5rem){
+    main { 
+        grid-template-areas: 
+        "rood groen geel blauw";
+    }
+}
+
+@media (min-width: 50rem){
+    main {
+        grid-template-areas:  
+        "rood groen"
+        "geel blauw";
+    }
+}
