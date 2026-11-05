@@ -2,9 +2,106 @@
 
 /* === tokens === */
 :root {
-
+    --pagina: #1d1d1b;
+    --affiche: #2554ab;
+    --tekst: #fff8ee;
 }
 
 /* === base: narrow screens first === */
+body {
+    display: flex;
+    background-color: black;
+    max-height: 100svh;
+    justify-content: center;
+}
 
+.affiche {
+    margin: 2rem 1rem;
+    position: relative;
+    background-color: var(--affiche);
+    width: min(28rem, 100% - 2rem);
+    padding: clamp(1.5rem, 6vw, 3rem);
+    aspect-ratio: 3/4;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: var(--tekst);
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    line-height: 1.05;
+}
+
+.ondertitel {
+    font-size: 0.875rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+.datum {
+    z-index: 1;
+    top: 1rem;
+    left: 1rem;
+    background-color: white; color: black;
+}
+
+.logo {
+    z-index: 2;
+    top: 4rem;
+    left: 4rem;
+    background-color:  #1d1d1b;
+    font-size: 1.25rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.prijs {
+    z-index: 3;
+    top: 2.5rem;
+    left: 2.5rem;
+    background-color: #ffc83d;
+    font-size: 1.25rem;
+    color: black;
+    border-radius: 50%;
+}
+
+.uitverkocht {
+    z-index: 4;
+    top: 5.5rem;
+    left: 5.5rem;
+    background-color: #d6341c;
+    border-radius: 50%;
+}
+
+.sticker {
+    /* Form */
+    position: absolute;
+    width: clamp(4rem, 14vw, 7rem);
+    height: clamp(4rem, 14vw, 7rem);
+
+    /* Verticaal centreren */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* Horizontaal centreren + text formatting*/
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
 /* === media queries: below the base rules === */
+
+@media (min-width: 50rem) {
+    .logo, .uitverkocht {top: auto; left: auto;}
+    .logo {bottom: 6rem; right: 6rem;}
+    .uitverkocht {bottom: 3rem; right: 3rem;}
+}
+
+@media (min-width: 62.5rem) {
+    .prijs, .logo, .uitverkocht {top: auto; left: auto; bottom: auto; right: auto;}
+    .prijs {top: 2rem; right: 2rem;}
+    .logo {bottom: 2rem; left: 2rem}
+    .uitverkocht {bottom: 2rem; right: 2rem;}
+}
