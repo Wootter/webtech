@@ -2,9 +2,118 @@
 
 /* === tokens === */
 :root {
-
+    --papier: #fff8ee;
+    --inkt: #1a1a1a;
+    --gedempt: #6b6b6b;
+    --accent: #d6341c;
 }
 
 /* === base: narrow screens first === */
+body{
+    display: flex;
+    flex-direction: column;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+header {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 1.5rem 1rem;
+}
+
+header ul {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0;
+}
+
+ul a { 
+    display: inline-block;
+    color: var(--accent);
+    font-weight: bold;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--accent);
+    align-items: center;
+    border-radius: 2rem;
+    text-align: center;
+}
+.actief {
+    background-color: var(--accent);
+    color: white;
+}
+a { text-decoration: none; }
+
+.logo {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.held {
+    padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
+    background-color: var(--accent);
+    color: white;
+}
+
+#programma {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 5vw, 4rem);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+    line-height: 1.1;
+}
+
+.programma {
+    display: flex;
+    flex-direction: column;
+}
+
+.programma li {
+    display: flex;
+    align-items: center;
+}
+
+.programma span {
+    margin-left: auto;
+    font-weight: bold;
+    color: var(--gedempt);
+    text-decoration: underline 1px #e3d9c8;
+}
+
+time {
+    color: var(--accent);
+    min-width: 4rem;
+}
+
+footer {
+    color: var(--gedempt);
+    font-size: 0.875rem;
+    text-align: center;
+}
 
 /* === media queries: below the base rules === */
+
+@media (min-width: 50rem){
+    header { margin: 1.5rem 3rem; }
+    header ul { flex-direction: row;}
+}
+
+@media (min-width: 75rem){
+    header { flex-direction: row; padding: 0 2rem ;}
+    nav { margin-left: auto;}
+}
