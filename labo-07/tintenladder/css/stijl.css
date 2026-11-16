@@ -2,9 +2,68 @@
 
 /* === tokens === */
 :root {
+    --papier: hsl(40 30% 97%);
+    --inkt: hsl(210 25% 12%);
+    --gedempt: hsl(210 10% 42%);
+    --hue: 210;
 
+    --kop-ff: georgia;
+    --kop-size: 1.5rem;
+    --kop-lh: 1.2;
+
+    --label-ff: verdana;
+    --label-fw: bold;
+    --label-size: 0.875rem;
 }
 
 /* === base === */
+body {
+    background-color: var(--papier);
+    min-height: 100svh;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+header {
+    padding: 2rem;
+    h1 {
+        font-family: var(--kop-ff);
+        font-size: var(--kop-size);
+        line-height: var(--kop-lh);
+    }
+
+    p{ color: var(--gedempt);}
+}
 
 /* === the ten steps: one rule per step === */
+.ladder {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.trede {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1rem;
+
+    font-family: var(--label-ff);
+    font-weight: var(--label-fw);
+    font-size: var(--label-size);
+}
+
+.trede:nth-child(1){background-color: hsl(var(--hue), 55%, 95%);}
+.trede:nth-child(2){background-color: hsl(var(--hue), 55%, 85%);}
+.trede:nth-child(3){background-color: hsl(var(--hue), 55%, 75%);}
+.trede:nth-child(4){background-color: hsl(var(--hue), 55%, 65%);}
+.trede:nth-child(5){background-color: hsl(var(--hue), 55%, 55%);}
+.trede:nth-child(6){background-color: hsl(var(--hue), 55%, 45%);}
+.trede:nth-child(7){background-color: hsl(var(--hue), 55%, 35%);}
+.trede:nth-child(8){background-color: hsl(var(--hue), 55%, 25%);}
+.trede:nth-child(9){background-color: hsl(var(--hue), 55%, 15%);}
+.trede:nth-child(10){background-color: hsl(var(--hue), 55%, 5%);}
+
+.trede:nth-child(n + 6) {
+    color: var(--papier);
+}
