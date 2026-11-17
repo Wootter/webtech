@@ -4,9 +4,107 @@
 
 /* === tokens: type scale, spacing scale, colour roles (7.4, 7.5, 7.7) === */
 :root {
+    --text-s: 0.8rem;
+    --text-m: 1rem;
+    --text-l: 1.25;
+    --text-xl: 1.563rem;
+    --text-xxl: 1.953rem;
+    --text-xxxl: 2.441rem;
 
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --space-xl: 4rem;
+
+    --oppervlak: hsl(40 30% 97%);
+    --inkt: hsl(230 25% 15%);
+    --gedempt: hsl(230 10% 42%);
+    --accent: hsl(15 70% 42%);
+    --lijn: hsl(230 15% 85%);
 }
 
 /* === base === */
+body {
+    justify-self: center;
+
+    width: 65ch;
+    padding: var(--space-xl) var(--space-m);
+
+    font-size: var(--text-m);
+    line-height: 1.5;
+    font-family: "Atkinson Hyperlegible", Verdana, sans-serif;
+}
+
+p {padding-bottom: var(--space-m);}
+.bovenkop{
+    color: var(--accent);
+    font-size: var(--text-s);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1;
+    padding-bottom: var(--space-s);
+}
+.bovenkop, blockquote, h1, h2, .intro {font-family: "Fraunces", verdana, sans-serif;}
+
+h1 {
+    font-size: var(--text-xxxl);
+    font-weight: bold;
+    line-height: 1.1;
+    padding-bottom: var(--space-m);
+}
+h2 {
+    font-size: var(--text-xl);
+    line-height: 1.2;
+    padding-bottom: var(--space-s);
+}
+h2:not(:first-of-type){padding-top: var(--space-xl);}
+h3{
+    line-height: 1.3;
+    font-size: var(--text-l);
+    padding-top: var(--space-l);
+    padding-bottom: var(--space-xs);
+}
+
+.intro {
+    line-height: 1.4;
+    font-size: var(--text-l);
+    padding-bottom: var(--space-m)
+}
+.meta {
+    font-size: var(--text-s);
+    color: var(--gedempt);
+    padding-bottom: var(--space-m);
+    border-bottom: 1px solid;
+}
+
+header{padding-bottom: var(--space-xl);}
+blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--accent);
+    margin: var(--space-l) 0;
+    padding-left: var(--space-m);
+
+    footer {
+        font-size: var(--text-s);
+        color: var(--gedempt);
+    }
+}
 
 /* === the article === */
+
+@font-face {
+    font-family: "Fraunces";
+    src: url(../fonts/fraunces-latin-wght-normal.woff2);
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url(../fonts/fraunces-latin-wght-italic.woff2);
+    font-style: italic;
+    font-weight: 400 700;
+    font-display: swap;
+}
