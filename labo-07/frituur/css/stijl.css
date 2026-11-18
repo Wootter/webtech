@@ -2,9 +2,122 @@
 
 /* === tokens: five colour roles in hsl (7.7) === */
 :root {
+    --text-s: 0.8rem;
+    --text-m: 1rem;
+    --text-l: 1.25;
+    --text-xl: 1.563rem;
+    --text-xxl: 1.953rem;
+    --text-xxxl: 2.441rem;
 
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --space-xl: 4rem;
+
+    color-scheme: light dark;
+    --oppervlak: hsl(45 60% 96%);
+    --inkt: hsl(25 30% 12%);
+    --gedempt: hsl(25 10% 40%);
+    --accent: hsl(22 85% 40%);
+    --lijn: hsl(40 25% 80%);
 }
 
 /* === base === */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2, h3 {font-family: Georgia, 'Times New Roman', Times, serif;}
+
+header {
+    text-align: center;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-l);
+}
+.naam {
+    font-size: var(--text-xxl);
+    color: var(--accent);
+    line-height: 1.1;
+}
+.slogan {
+    color: var(--gedempt);
+    margin-top: var(--space-xs);
+}
+
+main {
+    max-width: 56rem;
+    margin: 0 var(--space-m);
+    margin-bottom: var(--space-l);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-l);
+}
+section {min-width: 16rem;}
+section:nth-child(1){grid-column: 1;}
+section:nth-child(2){grid-column: 2;}
+section:nth-child(3){grid-column: 3;}
+
+.menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.menu li {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-s) 0;
+    border-bottom: 1px dotted var(--lijn);
+}
+
+.label {
+    background-color: var(--accent);
+    color: var(--oppervlak);
+    font-size: var(--text-s);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0 var(--space-s);
+    border-radius: var(--space-xs);
+}
+
+section h2 {
+    font-size: var(--text-xl);
+    line-height: 1.2;
+    border-bottom: 2px solid var(--accent);
+    padding: var(--space-xs);
+    margin-bottom: var(--space-s);
+}
+
+.info {
+    grid-column: 1/-1;
+    border: 1px solid var(--gedempt);
+    padding: var(--space-m);
+    border-radius: var(--space-m);
+
+    h2 {
+        margin-bottom: var(--space-s);
+        border-bottom: 2px solid var(--accent);
+    }
+}
+
+footer {
+    align-self: center;
+}
 
 /* === dark mode: tokens only (7.9) === */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --oppervlak: hsl(25 15% 10%);
+        --inkt: hsl(40 30% 92%);
+        --gedempt: hsl(25 10% 40%);
+        --accent: hsl(32 90% 62%);
+        --lijn: hsl(25 10% 28%);
+    }
+}
