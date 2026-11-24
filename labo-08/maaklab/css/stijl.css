@@ -2,20 +2,202 @@
 
 /* === tokens: colours, fonts, sizes, and one duration and one curve (8.1) === */
 :root {
+    --color-oppervlak: hsl(220 20% 97%);
+    --color-inkt: hsl(215 30% 14%);
+    --color-gedempt: hsl(215 10% 42%);
+    --color-accent: hsl(215 70% 40%);
+    --color-donker-accent: hsl(215 70% 30%);
+    --color-lijn: hsl(210 15% 84%);
 
+    --font-text: "Atkinson Hyperlegible";
+
+    --size-corner: 0.5rem;
+    --duur: 200ms;
+    --curve: ease-out;
+
+    --text-s: 0.8rem;
+    --text-m: 1rem;
+    --text-l: 1.25;
+    --text-xl: 1.563rem;
+    --text-xxl: 1.953rem;
+    --text-xxxl: 2.441rem;
+
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --space-xl: 4rem;
 }
 
 /* === base === */
-
+body {
+    font-family: var(--font-text);
+    background-color: var(--color-oppervlak);
+    color: var(--color-inkt);
+}
 /* === header: links with an underline that grows from the left (8.3, 8.6) === */
+.kop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--text-l);
+    font-weight: bold;
+    padding: var(--space-m) var(--space-l);
+    border-bottom: 1px solid var(--color-lijn);
+}
 
+.kop ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: var(--space-m);
+}
+
+.kop nav a {
+    position: relative;
+    display: inline-block;
+    transition: color var(--duur) var(--curve);
+}
+
+.kop nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    inset-inline: 0;
+    border-bottom: 2px solid var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duur) var(--curve);
+}
+
+.kop nav a:hover,
+.kop nav a:focus {
+    color: var(--color-accent);
+}
+
+.kop nav a:hover::after,
+.kop nav a:focus::after {
+    transform: scaleX(1);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-inkt);
+    font-weight: bold;
+    padding: var(--space-xs) 0;
+}
 /* === cards: transition on the base state (8.2), lift on hover and focus-within === */
+main {
+    max-width: 80rem;
+    margin-inline: auto;
+    padding: var(--space-xl) var(--space-l);
+}
+h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-l);
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 0.25rem;
+    margin-top: var(--space-s);
+    background-color: var(--color-accent);
+}
+
+.kaarten {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    padding-left: 0;
+    gap: var(--space-l);
+}
+
+.kaart {
+    flex: 0 1 15rem;
+    min-width: min(100%, 15rem);
+    background-color: white;
+    border: 1px solid var(--color-lijn);
+    border-radius: var(--size-corner);
+    padding: var(--space-m);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+
+.datum {
+    font-size: var(--text-s);
+    color: var(--color-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+h3 {
+    font-size: var(--text-l);
+    line-height: 1.3;
+    color: var(--color-gedempt);
+}
+
+.kaart:focus-within {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.15);
+}
+
+.kaart {
+    transition:
+        transform var(--duur) var(--curve),
+        box-shadow var(--duur) var(--curve);
+}
+
+.knop {
+    transition:
+        background-color var(--duur) var(--curve),
+        transform var(--duur) var(--curve);
+}
+
+.knop {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: var(--color-accent);
+    color: var(--color-oppervlak);
+    font-weight: bold;
+    padding: var(--space-s) var(--space-l);
+    border-radius: var(--size-corner);
+    margin-top: auto;
+}
+
+.knop:hover, .knop:focus {
+    background-color: var(--color-donker-accent);
+}
+.knop:active {
+    transform: scale(0.97);
+}
 
 /* === hover only where hovering exists (6.9) === */
 @media (hover: hover) {
-
+    .kaart:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.15);
+    }
 }
 
 /* === footer === */
-
+footer {
+    border-top: 1px solid var(--color-lijn);
+    padding: var(--space-m) var(--space-l);
+    color: var(--color-gedempt);
+    font-size: var(--text-s);
+}
 /* === reduced motion (8.5) === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
