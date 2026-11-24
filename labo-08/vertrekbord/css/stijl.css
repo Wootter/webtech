@@ -2,15 +2,167 @@
 
 /* === tokens: a dark board === */
 :root {
+    --color-oppervlake: hsl(210 30% 10%);
+    --color-inkt: hsl(45 30% 92%);
+    --color-gedempt: hsl(210 10% 65%);
+    --color-accent: hsl(45 95% 55%);
+    --color-lijn: hsl(210 15% 25%);
 
+    --ff-text: "Atkinson Hyperlegible";
+
+    --size-corner: 0.5rem;
+    --duur: 200ms;
+    --curve: ease-out;
+
+    --text-s: 0.8rem;
+    --text-m: 1rem;
+    --text-l: 1.25;
+    --text-xl: 1.563rem;
+    --text-xxl: 1.953rem;
+    --text-xxxl: 2.441rem;
+
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --space-xl: 4rem;
 }
 
 /* === base: header, list, footer at the bottom (4.7) === */
+body{
+    background-color: var(--color-oppervlake);
+    color: var(--color-inkt);
+    font-family: var(--ff-text);
+    min-height: 100svh;
+    padding: var(--space-l);
 
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+}
+
+header {
+    grid-row: 1;
+}
+.naam {
+    font-size: var(--text-s);
+    color: var(--color-gedempt);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+h1 {
+    font-size: var(--text-xxl);
+    font-weight: bold;
+    line-height: 1.1;
+    padding: var(--space-s);
+}
+.live {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-s);
+    color: var(--color-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+main {
+    grid-row: 2;
+}
+footer {
+    margin-top: auto;
+    grid-row: 3;
+}
 /* === the live dot: a pseudo-element that pulses (8.4, 8.6) === */
-
+.live::before {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    left: var(--space-xs);
+    background-color: var(--color-accent);
+    animation: pulseren 1.5s ease-in-out infinite;
+}
 /* === the departures === */
+.vertrekken {
+    margin-top: var(--space-l);
+    margin-inline: auto;
+    list-style: none;
+    padding-left: 0;
+}
 
+.vertrek {
+    display: grid;
+    grid-template-columns: 6rem 1fr auto;
+    gap: var(--space-m);
+    align-items: center;
+    padding-block: var(--space-m);
+    border-bottom: 1px solid var(--color-lijn);
+}
+
+.tijd {
+    font-size: var(--text-xl);
+    font-weight: bold;
+}
+.naar{font-size: var(--text-l);}
+.status{font-size: var(--text-s); color: var(--color-gedempt);}
+.vertrokken {opacity: 0.45;}
+.extra {color: var(--color-accent); font-weight: bold;}
 /* === the loading ring and the extra departure (8.4) === */
+.laden {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
 
+.laden::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid var(--color-lijn);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: draaien 1s linear infinite;
+}
+
+.nieuw {
+    animation: binnenkomen 300ms var(--curve) 1 forwards;
+}
+
+@keyframes binnenkomen {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseren {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes draaien {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    padding-top: var(--space-l);
+    color: var(--color-gedempt);
+    font-size: var(--text-s);
+}
 /* === reduced motion (8.5) === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
