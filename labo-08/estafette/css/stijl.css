@@ -2,7 +2,30 @@
 
 /* === tokens: colours, one duration, one curve and the time between two runners === */
 :root {
+    --color-wit: hsl(0 0% 100%);
+    --color-loper1: hsl(165 34% 47%);
+    --color-loper2: hsl(152 36% 57%);
+    --color-loper3: hsl(187 44% 62%);
+    --color-loper4: hsl(192 45% 77%);
+    
+    --ff-text: "Atkinson Hyperlegible";
 
+    --size-corner: 0.5rem;
+    --duur: 8s;
+    --curve: ease-in-out;
+
+    --text-s: 0.8rem;
+    --text-m: 1rem;
+    --text-l: 1.25;
+    --text-xl: 1.563rem;
+    --text-xxl: 1.953rem;
+    --text-xxxl: 2.441rem;
+
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --space-xl: 4rem;
 }
 
 /* === four lanes that fill the window === */
@@ -12,3 +35,12 @@
 /* === keyframes: only the way there === */
 
 /* === reduced motion (8.5) === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
