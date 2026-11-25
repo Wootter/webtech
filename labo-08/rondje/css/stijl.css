@@ -2,13 +2,75 @@
 
 /* === tokens: colours, one duration and one curve (8.1) === */
 :root {
+    --color-papier: hsl(47 20% 92%);
+    --color-geel: hsl(50 88% 61%);
+    --color-oranje: hsl(27 67% 48%);
+    --color-rood: hsl(8 72% 35%);
+    --color-bordeaux: hsl(2 80% 25%);
 
+    --ff-text: "Atkinson Hyperlegible";
+
+    --size-corner: 0.5rem;
+    --duur: 8s;
+    --curve: ease-in-out;
+
+    --text-s: 0.8rem;
+    --text-m: 1rem;
+    --text-l: 1.25;
+    --text-xl: 1.563rem;
+    --text-xxl: 1.953rem;
+    --text-xxxl: 2.441rem;
+
+    --space-xs: 0.25rem;
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --space-xl: 4rem;
 }
-
 /* === the stage fills the window === */
-
+.piste {
+    position: relative;
+    height: 100svh;
+    background-color: var(--color-papier);
+}
 /* === the box and its animation (8.4) === */
-
+.piste::after {
+    content: "";
+    display: block;
+    background-color: var(--color-geel);
+    width: 50%;
+    height: 50%;
+    animation: world_Travel var(--duur) var(--curve) infinite;
+}
 /* === keyframes: four stops, a place and a colour each === */
-
+@keyframes world_Travel {
+    0% {
+        transform: translate(0%, 0%);
+        background-color: var(--color-geel);
+    }
+    25% {
+        transform: translate(100%, 0%);
+        background-color: var(--color-oranje);
+    }
+    50% {
+        transform: translate(100%, 100%);
+        background-color: var(--color-rood);
+    }
+    75% {
+        transform: translate(0%, 100%);
+        background-color: var(--color-bordeaux);
+    }
+    100%{
+        transform: translate(0%, 0%);
+    }
+}
 /* === reduced motion (8.5) === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
