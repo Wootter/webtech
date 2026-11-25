@@ -7,11 +7,12 @@
     --color-loper2: hsl(152 36% 57%);
     --color-loper3: hsl(187 44% 62%);
     --color-loper4: hsl(192 45% 77%);
-    
+
     --ff-text: "Atkinson Hyperlegible";
 
     --size-corner: 0.5rem;
-    --duur: 8s;
+    --duur: 2s;
+    --wissel: 250ms;
     --curve: ease-in-out;
 
     --text-s: 0.8rem;
@@ -29,11 +30,47 @@
 }
 
 /* === four lanes that fill the window === */
-
+.baan {
+    height: 100svh;
+    display: grid;
+    grid-template-rows: repeat(3, 25svh);
+}
 /* === the runners: one animation, there and back; each one starts a little later (8.4) === */
-
+.loper {
+    width: 25svh;
+}
+.loper:nth-child(1) {
+    background-color: var(--color-loper1);
+    animation: estafetten var(--duur) var(--curve) infinite;
+    animation-direction: alternate;
+}
+.loper:nth-child(2) {
+    background-color: var(--color-loper2);
+    animation: estafetten var(--duur) var(--curve) infinite;
+    animation-direction: alternate;
+    animation-delay: var(--wissel);
+}
+.loper:nth-child(3) {
+    background-color: var(--color-loper3);
+    animation: estafetten var(--duur) var(--curve) infinite;
+    animation-direction: alternate;
+    animation-delay: calc(var(--wissel) * 2);
+}
+.loper:nth-child(4) {
+    background-color: var(--color-loper4);
+    animation: estafetten var(--duur) var(--curve) infinite;
+    animation-direction: alternate;
+    animation-delay: calc(var(--wissel) * 3);
+}
 /* === keyframes: only the way there === */
-
+@keyframes estafetten {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(calc(100vw - 100%));
+    }
+}
 /* === reduced motion (8.5) === */
 @media (prefers-reduced-motion: reduce) {
     *,
